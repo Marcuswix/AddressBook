@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:viewmodels="clr-namespace:AddressBookMaui.ViewModels"
+             
+             x:DataType="{x:Type viewmodels:ContactAddViewModel}"
+             
+             x:Class="AddressBookMaui.Pages.ContactAddPage"
+             Title="Add Contact Page">
+    <Grid Margin="40, 20, 40, 20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <VerticalStackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="To Contact List" Command="{Binding NavigateToContactListCommand}"  Background="#21266B"></Button>
+            </Grid>
+           
+        </VerticalStackLayout>
+
+        <ScrollView Orientation="Vertical" Grid.Row="1">
+            <VerticalStackLayout>
+                <Label 
+            Text="Add A New Contact"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+                Margin="10" FontSize="24"/>
+                <Label TextColor="#616161"  Margin="0, 10, 0, 10" FontSize="14">First Name:</Label>
+                <Entry x:Name="FirstName" Text="{Binding ContactForm.FirstName}"></Entry>
+                <Label TextColor="#616161"  Margin="0, 10, 0, 10" FontSize="14">Last Name:</Label>
+                <Entry x:Name="LastName" Text="{Binding ContactForm.LastName}"></Entry>
+                <Label TextColor="#616161" Margin="0, 10, 0, 10" FontSize="14">Email:</Label>
+                <Entry x:Name="ContactEmail" Text="{Binding ContactForm.Email}"></Entry>
+                <Label TextColor="#616161" Margin="0, 10, 0, 10" FontSize="14">Phonenumber:</Label>
+                <Entry x:Name="ContactPhone" Text="{Binding ContactForm.PhoneNumber}"></Entry>
+                <Label TextColor="#616161" Margin="0, 10, 0, 10" FontSize="14">Address:</Label>
+                <Entry x:Name="Addresss" Text="{Binding ContactForm.Address}"></Entry>
+                <Label TextColor="#616161" Margin="0, 10, 0, 10" FontSize="14">Postal Code:</Label>
+                <Entry x:Name="PostalCode" Text="{Binding ContactForm.PostalCode}"></Entry>
+                <Label TextColor="#616161" Margin="0, 10, 0, 10" FontSize="14">City:</Label>
+                <Entry x:Name="City" Text="{Binding ContactForm.City}"></Entry>
+                <Button Margin="0, 40, 0, 10" x:Name="BtnAddContact" Command="{Binding AddContactToListCommand}" Text="Add Contact" Background="#21266B" FontSize="14"></Button>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
+
