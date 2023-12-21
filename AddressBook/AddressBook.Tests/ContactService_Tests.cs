@@ -9,7 +9,7 @@ namespace AddressBook.Tests
     public class ContactService_Tests
     {
         /// <summary>
-        /// Nedan är olika enhetstester som jag har gjort på olika metoder i programmet.
+        ///     Here are some unittests:
         /// </summary>
 
         [Fact]

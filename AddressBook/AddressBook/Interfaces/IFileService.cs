@@ -6,7 +6,7 @@
         /// This method fetches a file from the hard drive. If a file exist on the hard drive with the specified filepath, 
         /// it reads the entire file and returns it as a string.    
         /// </summary>
-        /// <returns>If successfull, it returns the file - if not, it returns null.</returns>
+        /// <returns>If successful, it returns the file - if not, it returns null.</returns>
         string GetContentFromFile();
 
         /// <summary>
@@ -14,7 +14,7 @@
         /// It makes a streamWriter instance to write the content to a file located at the specified filePath.
         /// </summary>
         /// <param name="content"></param>
-        /// <returns>It returns true if successfull - if not, it returns false.</returns>
+        /// <returns>It returns true if successful - if not, it returns false.</returns>
         bool SaveContentToFile(string content);
 
         /// <summary>

@@ -7,10 +7,10 @@ namespace AddressBook.Interfaces
         /// <summary>
         /// This method adds a contact. It receives a parameter called "contact" of type the "Contact".
         /// It first checks if there already exist another contact with the same email-address. 
-        /// If no contact with the same email exists, it adds the contact to the List (_contactList) and then saves it to the harddrive in JSON-format.
+        /// If no contact with the same email exists, it adds the contact to the List (_contactList) and then saves it to the hard drive in JSON-format.
         /// </summary>
         /// <param name="contact">A Contact class</param>
-        /// <returns>Returns true if successfull and false if there already exist a contact with that email.</returns>
+        /// <returns>Returns true if successful and false if there already exist a contact with that email.</returns>
         bool AddContact(Contact contact);
 
 
@@ -24,7 +24,7 @@ namespace AddressBook.Interfaces
 
 
         /// <summary>
-        /// This metod finds a specific contact in the contactList. It first receives a parameter (a name).
+        /// This method finds a specific contact in the contactList. It first receives a parameter (a name).
         /// It then fetches all contacts in the contactList
         /// and checks if there are any contacts that match the input parameter (the name).  
         /// </summary>
@@ -33,7 +33,7 @@ namespace AddressBook.Interfaces
         Contact ShowContact(string name);
 
         /// <summary>
-        /// This metod deletes a contact from the contactList. It first receives a parameter (an email address).
+        /// This method deletes a contact from the contactList. It first receives a parameter (an email address).
         /// It then checks if there is any contact with that email address.
         /// If there is, the method first removes it from contactList and then removes it from the file (stored on the hard drive).
         /// </summary>
