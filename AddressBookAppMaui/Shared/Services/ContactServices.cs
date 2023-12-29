@@ -16,7 +16,7 @@ namespace Shared.Services
 
         public event EventHandler? ContactListUpdated;
 
-        private readonly FileService _fileService = new FileService(@"B:\C-code\AddressBookAppMaui\contacts.json");
+        private readonly FileService _fileService = new FileService(@"B:\C-code\c-sharp\AddressBookAppMaui\contacts.json");
 
         public bool AddContactToList(Contact contact)
         {

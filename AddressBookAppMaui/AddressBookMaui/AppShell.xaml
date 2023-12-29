@@ -14,6 +14,8 @@
     <ShellContent
         Title="Add Contact" ContentTemplate="{DataTemplate pages:ContactAddPage}" Route="ContactAddPage" />
     <ShellContent
-        Title="Contact Details" ContentTemplate="{DataTemplate pages:ContactDetailsPage}" Route="ContactDetailsPage" />
+        Title="Edit Contact" ContentTemplate="{DataTemplate pages:ContactDetailsPage}" Route="ContactDetailsPage" />
+    <ShellContent 
+        Title="Contact Details" ContentTemplate="{DataTemplate pages:TheRealContactDetailsPage}" Route="TheRealContactDetailsPage"/>
 
 </Shell>

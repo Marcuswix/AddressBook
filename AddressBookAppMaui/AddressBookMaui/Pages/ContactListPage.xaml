@@ -9,39 +9,39 @@
              
              x:Class="AddressBookMaui.Pages.ContactListPage"
              Title="Contact List">
-    
+
     <ScrollView Orientation="Vertical">
         <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <VerticalStackLayout Grid.Row="0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="140"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="140"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
                     <Button Background="#21266B" Grid.Column="2" Text="Add Contact" x:Name="BtnToAddContact" Command="{Binding NavigateToAddContactCommand}"></Button>
                 </Grid>
-        </VerticalStackLayout>
+            </VerticalStackLayout>
 
-        <VerticalStackLayout Grid.Row="1" Grid.Column="1">
-            <Label 
-            Text="Contact List"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" FontSize="24" Margin="0, 10, 0, 0"/>
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                <Label 
+                Text="Contact List"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" FontSize="24" Margin="0, 10, 0, 0"/>
 
                 <StackLayout IsVisible="{Binding ContactListEmpty}" Margin="0, 20, 0, 0">
                     <Label FontSize="16" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">There are no contacts in the list at the moment...</Label>
@@ -51,16 +51,24 @@
                         Source="an_empty_list.png"
                         HeightRequest="185"
                         Aspect="AspectFit"
-                        SemanticProperties.Description="dot net bot in a race car number eight" />
+                        SemanticProperties.Description="A empty list of some sort..." />
                     <BoxView Color="Transparent" Margin="5" VerticalOptions="Fill" HorizontalOptions="Fill">
                     </BoxView>
-                    
+
                 </StackLayout>
 
                 <CollectionView VerticalOptions="Center" ItemsSource="{Binding ContactList}" Margin="0">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="{x:Type models:Contact}">
-                            <Frame Margin="0, 20, 0, 0" BackgroundColor="#F9FBFF">
+                            <Frame Margin="0, 10, 0, 0" BackgroundColor="#FFFDF8">
+                                <Frame.Background>
+                                    <LinearGradientBrush EndPoint="1,0">
+                                        <GradientStop Color="White"
+                                            Offset="0.1" />
+                                        <GradientStop Color="#D2D5DE"
+                                            Offset="1" />
+                                    </LinearGradientBrush>
+                                </Frame.Background>
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto"></RowDefinition>
@@ -69,13 +77,12 @@
                                         <RowDefinition Height="auto"></RowDefinition>
                                         <RowDefinition Height="auto"></RowDefinition>
                                         <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout>
@@ -96,26 +103,12 @@
                                             <Label Grid.Row="3" Grid.Column="1" Text="{Binding PhoneNumber}" Margin="10, 10, 0, 0"></Label>
                                         </StackLayout>
 
-                                        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="5, 0, 0, 0">
-                                            <Label TextColor="Grey" Grid.Row="4" Margin="0, 10, 0, 0">Address:</Label>
-                                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding Address}" Margin="10, 10, 0, 0"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="5, 0, 0, 0">
-                                            <Label TextColor="Grey" Grid.Row="5" Margin="0, 10, 0, 0">City:</Label>
-                                            <Label Grid.Row="5" Grid.Column="1" Text="{Binding City}" Margin="10, 10, 0, 0"></Label>
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="5, 0, 0, 0">
-                                            <Label TextColor="Grey" Grid.Row="6" Margin="0, 10, 0, 0">Postal Code:</Label>
-                                            <Label Grid.Row="6" Grid.Column="1" Text="{Binding PostalCode}" Margin="10, 10, 0, 0"></Label>
-                                        </StackLayout>
-
                                     </StackLayout>
 
                                     <StackLayout Grid.Column="3" Grid.Row="0">
-                                        <Button Grid.Column="3" Grid.Row="0" Text="Remove" Margin="40, 0, 0, 20" Background="#800F13" CommandParameter="{Binding .}" Command="{Binding Path=RemoveContactFromListCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ContactListViewModel}}}" ></Button>
-                                        <Button Grid.Column="3" Grid.Row="7" Text="Edit" Margin="40, 0, 0, 0" Background="#21266B"  CommandParameter="{Binding .}" Command="{Binding Path=NavigateToContactDetailsCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ContactListViewModel}}}"></Button>
+                                        <Button Grid.Column="3" Grid.Row="0" Text="Remove" Margin="20, 0, 0, 8" Background="#800F13" CommandParameter="{Binding .}" Command="{Binding Path=RemoveContactFromListCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ContactListViewModel}}}" ></Button>
+                                        <Button Grid.Column="3" Grid.Row="2" Text="Edit" Margin="20, 0, 0, 0" Background="#21266B"  CommandParameter="{Binding .}" Command="{Binding Path=NavigateToContactDetailsCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ContactListViewModel}}}"></Button>
+                                        <Button Grid.Column="3" Grid.Row="4" Margin="20, 8, 0, 0" Text="Contact Details" Background="#BABD60" CommandParameter="{Binding .}" Command="{Binding Path=NavigateToTheRealContactDetailsCommand, Source={RelativeSource AncestorType={x:Type viewmodels:ContactListViewModel}}}"></Button>
                                     </StackLayout>
 
                                 </Grid>

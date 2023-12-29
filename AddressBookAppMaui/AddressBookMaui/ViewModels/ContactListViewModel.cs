@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Shared.Services;
 using AddressBookMaui.ViewModels;
 using Contact = Shared.Models.Contact;
-using System.Diagnostics;
 
 namespace AddressBookMaui.ViewModels
 {
@@ -48,6 +42,17 @@ namespace AddressBookMaui.ViewModels
                     ContactList = new ObservableCollection<Contact>(_contactServices.ShowContacts());
                 }
             }
+        }
+
+        [RelayCommand]
+        public static async Task NavigateToTheRealContactDetails(Contact contact)
+        {
+            var parameters = new ShellNavigationQueryParameters
+            {
+                { "Contact", contact }
+            };
+
+            await Shell.Current.GoToAsync("TheRealContactDetailsPage", parameters);
         }
 
         private bool _contactListEmpty = false;

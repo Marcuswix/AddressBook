@@ -29,7 +29,7 @@ namespace AddressBookMaui.ViewModels
         }
 
         [RelayCommand]
-        public void AddContactToList()
+        public async void AddContactToList()
         {
             if (ContactForm != null)
             {
@@ -38,7 +38,7 @@ namespace AddressBookMaui.ViewModels
                 if (result == true)
                 {
                     ContactForm = new();
-                    //ContactList = (ObservableCollection<Contact>)_contactServices.ShowContacts();
+                    await Shell.Current.GoToAsync("//ContactListPage");
                 }
                 else
                 { }
